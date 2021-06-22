@@ -5,7 +5,8 @@
     "watch:serve": "ts-node src/main.ts",
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "class-transformer": "^0.4.0",
@@ -18,9 +19,14 @@
   "devDependencies": {
     "@types/node": "^15.12.4",
     "@types/pino": "^6.3.8",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.3.4"
+  },
+  "lint-staged": {
+    "*.ts": "npm run format"
   }
 }

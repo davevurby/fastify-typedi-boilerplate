@@ -5,7 +5,10 @@
     "watch:serve": "ts-node src/main.ts",
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
   },
   "dependencies": {
     "class-transformer": "^0.4.0",
@@ -16,16 +19,36 @@
     "typedi": "^0.10.0"
   },
   "devDependencies": {
+    "@johanblumenberg/ts-mockito": "^1.0.29",
+    "@types/jest": "^26.0.23",
     "@types/node": "^15.12.4",
     "@types/pino": "^6.3.8",
     "husky": "^6.0.0",
+    "jest": "^27.0.5",
     "lint-staged": "^11.0.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.4"
   },
   "lint-staged": {
     "*.ts": "npm run format"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "test",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "collectCoverage": true
   }
 }
